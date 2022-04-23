@@ -10,6 +10,8 @@ const server = express();
 
 server.name = 'API';
 
+
+//Ahi el bodyParser me esta haciendo el middleware!
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
@@ -24,7 +26,16 @@ server.use((req, res, next) => {
 
 server.use('/', routes);
 
+//-----seria el middleware pero pasando todos los errores----
+//Como no le especifique una ruta, va recorren en todas las rutas!!
 // Error catching endware.
+
+// server.use((req,res,next) => {
+//   console.log('estoy en',req.url)
+//   next();
+// })
+
+
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   const status = err.status || 500;
   const message = err.message || err;
