@@ -24,7 +24,7 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use('/api', routes);
+server.use('/', routes);
 
 
 //-----seria el middleware pero pasando todos los errores----
