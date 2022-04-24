@@ -26,6 +26,7 @@ server.use((req, res, next) => {
 
 server.use('/', routes);
 
+
 //-----seria el middleware pero pasando todos los errores----
 //Como no le especifique una ruta, va recorren en todas las rutas!!
 // Error catching endware.
