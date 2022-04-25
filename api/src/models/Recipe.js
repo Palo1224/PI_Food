@@ -30,9 +30,10 @@ module.exports =(sequelize) =>
         ingredients:{
           type:DataTypes.STRING,
         },
-        // image:{
-        //   type:DataTypes.TEXT,
-        // },
+        image:{
+          type:DataTypes.TEXT,
+        },
+        
     
         
       });
