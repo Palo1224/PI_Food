@@ -19,7 +19,7 @@ module.exports =(sequelize) =>
           type:DataTypes.STRING,
           allowNull:false,
         },
-        score: {
+        spoonacularScore: {
           type:DataTypes.FLOAT,
     
         },
@@ -27,12 +27,13 @@ module.exports =(sequelize) =>
           type: DataTypes.FLOAT,
     
         },
-        ingredients:{
+        steps:{
           type:DataTypes.STRING,
         },
-        // image:{
-        //   type:DataTypes.TEXT,
-        // },
+        image:{
+          type:DataTypes.TEXT,
+        },
+        
     
         
       });
