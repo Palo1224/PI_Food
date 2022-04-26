@@ -15,10 +15,10 @@ router.post('/',async (req,res)=>{
    const {
        name,
        summary,
-       score,
+       spoonacularScore,
        healthScore,
-       ingredients,image,
-       diets,
+       steps,
+       
     }=req.body;
    
     if(!name || !summary )
@@ -27,19 +27,17 @@ router.post('/',async (req,res)=>{
         const newRecipe= await Recipe.create({
             name,
             summary,
-            score,
+            spoonacularScore,
             healthScore,
-            ingredients,
-            image,
-            diets
+            steps,
+            
         })
 
   
   
-        res.status(200).json(newRecipe);
+        res.status(201).json(newRecipe);
 
     } catch (error) {
-        console.log(error)
         res.status(404).send('Error en alguno de los datos provistos');
 
     }
