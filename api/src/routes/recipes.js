@@ -1,16 +1,15 @@
-const { Router } = require('express');
+const { Router } = require("express");
 const router = Router();
-const {getAllInfo}=require('../controllers/index');
+const { getAllInfo, getId } = require("../controllers/index");
 
-
-//#region 
+//#region
 // const getApi= async()=>
 // {
 
 //     try {
 //             const resAxios=await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY}&addRecipeInformation=true&number=100`);
 //             const {results}=resAxios.data;
-          
+
 //             if(results.length>0)
 //             {
 //               let info= results.map(i=>{
@@ -26,16 +25,15 @@ const {getAllInfo}=require('../controllers/index');
 //                       image:i.image,
 
 //                   }
-//               }) 
+//               })
 //                 return info
 //             }
-       
+
 //     }catch (error) {
 //         console.log(error);
 //     }
 
 // }
-
 
 // const getDB = async ()=>
 // {
@@ -54,17 +52,27 @@ const {getAllInfo}=require('../controllers/index');
 //         console.log(error);
 //     }
 
-   
 //     players4.map(p => console.log(p.toJSON()))
-// } 
+// }
 //#endregion
-router.get('/', async(req,res)=>
-{
-   res.send(await getAllInfo())
-  
-})
-router.get('/:id', async(req,res)=>{
+router.get("/", async (req, res) => {
+  try {
+    res.send(await getAllInfo());
+  } catch (error) {
+    console.log(error);
+  }
+});
 
-})
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    res.status(200).json(await getId(id));
+  } catch (error) {
+    res.status(404).json({error:error.message});
+  }
+});
+
+
 
 module.exports = router;
