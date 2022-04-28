@@ -1,33 +1,20 @@
-const {Diet}=require('../db')
 
-
+const { Diet } = require("../db");
 
 const diets = [
-  "Gluten Free",
-  "Vegetarian",
-  "Lacto-Vegetarian",
-  "Ovo-Vegetarian",
-  "Ketogenic",
-  "Vegan",
-  "Pescetarian",
-  "Paleo",
-  "Primal",
-  "Low FODMAP",
-  "Whole30",
+  { name: "Gluten Free" },
+  { name: "Vegetarian" },
+  { name: "Lacto-Vegetarian" },
+  { name: "Ovo-Vegetarian" },
+  { name: "Ketogenic" },
+  { name: "Vegan" },
+  { name: "Pescetarian" },
+  { name: "Paleo" },
+  { name: "Primal" },
+  { name: "Low FODMAP" },
+  { name: "Whole30" },
 ];
-
-
-
-async function getDiet(){
-    if(diets.length > 0){
-        try{
-            const infoDiet= await Diet.create()
-            return infoDiet;
-
-        }catch(e)
-        {
-            console.error(e)
-        }
-    }
+async function getDiet() {
+  await Diet.bulkCreate(diets);
 }
-module.exports ={getDiet};
+module.exports = { getDiet };
