@@ -14,10 +14,14 @@ module.exports =(sequelize) =>
         name: {
           type: DataTypes.STRING,
           allowNull: false,
+          unique:true,
+
         },
         summary:{
           type:DataTypes.STRING,
           allowNull:false,
+          unique:true,
+
         },
         spoonacularScore: {
           type:DataTypes.FLOAT,
@@ -30,12 +34,13 @@ module.exports =(sequelize) =>
         steps:{
           type:DataTypes.STRING,
         },
-        image:{
-          type:DataTypes.TEXT,
-        },
-        
+
     
         
+      }
+      ,
+      {   
+         timestamps: false
       });
     
 };
