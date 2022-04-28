@@ -1,6 +1,4 @@
 const { Router } = require('express');
-const {API_KEY}= process.env;
-const {getDiet}=require('../controllers/callApi');
 const {Diet} = require('../db');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
