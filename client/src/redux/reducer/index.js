@@ -13,7 +13,7 @@ const initialState = {
   allRecipes: [],
   diets: [],
   filter: [],
-  details: [],
+  details: {},
 };
 
 export default function reducer(state = initialState, actions) {
@@ -95,7 +95,11 @@ export default function reducer(state = initialState, actions) {
         ...state,
         details: actions.payload,
       };
-
+     case CLEAR_PAGE:
+       return{
+         ...state,
+          details:{}
+       }
 
     default:
       return state;

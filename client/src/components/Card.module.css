@@ -1,13 +1,15 @@
 .recipe {
-  color:white;
+  color:#9ADCFF;
    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: flex;
+  
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   text-decoration: none;
   width: 21rem;
   max-width: 21rem;
-  background: #FFAB76;
+  background: #fffda2;
   /* //#ffd5d */
   height: 23rem;
   object-fit: cover;
@@ -16,7 +18,7 @@
   overflow: hidden;
   box-shadow: 0 0 transparent, 0 0 transparent, 0 4px 10px -1px rgb(0 0 0 / 50%), 0 2px 10px -2px rgb(0 0 0 / 50%);
   transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
-
+   
   /* flex-direction: row;
  
   justify-content: center;
@@ -60,7 +62,7 @@
 
   }
   .name{
-    color:white;
+    color:#9ADCFF;
     padding:auto; 
     text-align: center;
   }
@@ -101,4 +103,7 @@
 
   border-radius: 10px;
   
+}
+p{
+  display: flex;
 }

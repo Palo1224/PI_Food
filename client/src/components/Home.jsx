@@ -28,7 +28,10 @@ export default function Home() {
     indexOfFirstRecipe,
     indexOfLastRecipe
   );
-
+  const cambiarIndex = (index) => { //dar estilo css
+    if(index===currentPage) return true
+    else return false
+}
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -49,6 +52,7 @@ export default function Home() {
         recipesPerPage={recipesPerPage}
         Recipes={Recipes.length}
         paginado={paginado}
+        cambiarIndex={cambiarIndex}
         />
           <div className={style.cards}>
       {currentRecipes?.map((e) => {

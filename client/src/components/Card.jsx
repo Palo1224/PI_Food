@@ -4,6 +4,7 @@ import style from "./Card.module.css";
 export default function Card({ name, image, diets, id, score }) {
   return (
     <div className={style.recipe} key={id}>
+      
       <img src={image} alt="img not found" width="200px" height="200px" />
       <h2 className={style.name}>{name}</h2>
 
@@ -12,7 +13,8 @@ export default function Card({ name, image, diets, id, score }) {
           <li className={style.li}>{e}</li>
         ))}
       </ul>
-      <p>score: {score}</p>
+      <p>SCORE:</p>
+      <p>{score}</p>
     </div>
   );
 }

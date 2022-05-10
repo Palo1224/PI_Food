@@ -71,6 +71,7 @@ async function getAllInfo() {
 }
 async function getName(name_1) {
   const allInfo = await getAllInfo();
+  name_1= name_1.replace(/\s+/g, ' ').trim()
   if (allInfo.length > 0) {
     const filterByName = await allInfo.filter((r) =>
       r.name.toLowerCase().includes(name_1.toLowerCase())
@@ -113,10 +114,14 @@ async function getId(id_1) {
       healthScore,
       diets,
       dishTypes,
-      steps: analyzedInstructions[0].steps.map((e) => e.step),
+      steps: analyzedInstructions[0] && analyzedInstructions[0].steps
+      ? analyzedInstructions[0].steps
+          .map((item) => item.step)
+          .join(" \n")
+      : "",
       image,
     };
-
+  console.log(infoApi1)
     return infoApi1;
   } else if (ValorLetras.test(id_1)) {
     const recipeFinded = await Recipe.findByPk(id_1,{

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { postRecipes, getDiets ,getRecipes} from "../redux/actions/index";
+import NavBar from "./NavBar";
+
 import style from "./CreateRecipe.module.css"
 function CreateRecipe() {
   const dispatch = useDispatch();
@@ -20,6 +22,17 @@ function CreateRecipe() {
     diet:[],
     
   });
+  function handleDelete(e){
+  setInfo
+    (
+      {
+        ...info,
+        diets:  info.diet.filter(diet=>diet !== e)
+      }
+    )
+
+  
+  }
   const validate= (info) => 
   {
     const error={}
@@ -117,13 +130,14 @@ function CreateRecipe() {
   }, []);
 
   return (
-    <div>
-      <Link to="/recipes/">
+    <div className={style.container}>
+      {/* <Link to="/recipes/">
         <button>Volver</button>
-      </Link>
+      </Link> */}
+      <NavBar></NavBar>
       <h1>Crea una nueva receta!</h1>
-      <form  className={style.create}   onSubmit={ (e)=>handleSubmit(e)}>
-        <div>           <label>Nombre</label>
+      <form   key={info.id} className={style.create}   onSubmit={ (e)=>handleSubmit(e)}>
+        <div>           <p>Nombre</p>
           <input
             className={error.name ? style.nameError : style.name}
 
@@ -137,7 +151,7 @@ function CreateRecipe() {
 
         </div>
         <div>
-          <label>Resumen</label>
+          <p>Resumen</p>
           <input
             className={error.summary ? style.summaError : style.summa}
 
@@ -147,12 +161,26 @@ function CreateRecipe() {
             name="summary"
             onChange={(e)=> handleChange(e)}
           />
-          {error.summary && <span className={style.error}>{error.summary}</span>}
+          {error.summary && <p className={style.error}>{error.summary}</p>}
 
         </div>
-        <div>
-          <label>Score</label>
+        
+        <div className={style.steps}>
+          <p>Steps</p>
           <input
+          
+            value={info.steps}
+            type="text"
+            placeholder="steps"
+            name="steps"
+            onChange={(e)=> handleChange(e)}
+          />
+        </div>
+    
+        <div className={style.spoonacularScore} >
+          <p>Score</p>
+          <input
+          
             value={info.spoonacularScore}
             type="number"
             min="0" max="100"
@@ -161,8 +189,10 @@ function CreateRecipe() {
             onChange={(e)=> handleChange(e)}
           />
         </div>
-        <div>
-          <label>Health Score</label>
+
+        <div  className={style.healthScore} >
+         
+          <p>Health Score</p>
           <input
             value={info.healthScore}
             type="number"
@@ -172,20 +202,11 @@ function CreateRecipe() {
             onChange={(e)=> handleChange(e)}
           />
         </div>
-        <div >
-          <label>Steps</label>
+
+        <div className={style.image}>
+          <p>Image</p>
           <input
-          className={style.steps}
-            value={info.steps}
-            type="text"
-            placeholder="steps"
-            name="steps"
-            onChange={(e)=> handleChange(e)}
-          />
-        </div>
-        <div>
-          <label>Image</label>
-          <input
+            
             value={info.image}
             type="text"
             placeholder="image"
@@ -193,13 +214,21 @@ function CreateRecipe() {
             onChange={(e)=> handleChange(e)}
           />
         </div>
-
-        <select onChange={(e) => handleSelect(e)}>
+       <div  className={style.diets}>
+         <p>Que tipo de dieta es?</p>
+       <select onChange={(e) => handleSelect(e)}>
           {diets.map((diet) => (
             <option value={diet.name}>{diet.name}s</option> 
             ))}
         </select >
-        <ul><li>{info.diet.map(e=> e + ',')}{console.log(info)}</li></ul>
+        <ul className={style.ul}>
+            {info.diet?.map((e) => (
+              <li className={style.li}>{e}</li>
+            ))}
+          </ul>
+       </div>
+ 
+        
         <button type="submit">Crear mi receta</button>
       </form>
     </div>

@@ -3,41 +3,122 @@
     margin-top: 4px;
     color: red;
 } */
-.create{
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    max-width: 55rem;
-    margin: 0 auto;
-    padding: 2rem;
-  background-color: #fece0c;
+.container
+{
+  background-color: #D5ECC2;
+
 }
-.summaError ,.nameError{
+.create{
+   display: inline-table;
+   text-align: center;
+
+
+  
+}
+
+
+.summaError ,.nameError {
     outline: none;
     border: 1px solid rgb(239, 68, 68);
     border-radius: 0.5rem;
     padding: 0.5rem 2rem;
+    flex-direction: row;
+    color: red;
 
 
   }
-  
-  .summa  ,.name{
+  .summaError ,.nameError p{
+    color: red;
+
+
+  }
+
+  .summa  ,.name,.steps input{
       
    outline: none;
-    border: 1px solid black;
-    border-radius: 0.5rem;
+    /* border: 1px solid #000000;*/
+    border-radius: 0.5rem; 
+    padding: 0.5rem 2rem;
+    justify-content: center;  
+
+    
+    
+
+
+  }
+
+  .spoonacularScore input
+  {
+    
+    /* border: 1px solid #000000;*/
+    border-radius: 0.5rem; 
     padding: 0.5rem 1rem;
+    justify-content: center;  
+  }
+  .healthScore input
+  {
+    /* border: 1px solid #000000;*/
+    border-radius: 0.5rem; 
+    padding: 0.5rem 1rem;
+    justify-content: center;  
+  }
+
+  .image input
+  {
+    /* border: 1px solid #000000;*/
+    border-radius: 0.5rem; 
+    padding: 0.5rem 1rem;
+    justify-content: center;  
+  }
+   
+
+  .diets select
+  {
+    /* border: 1px solid #000000;*/
+    border-radius: 0.5rem; 
+    justify-content: center;  
+  }
+   div{
+     padding: 3px;
+   }
+   p{
+    text-align: center;
+  
+   }
 
 
-  }
-  .error{
-    color:red
+  button
+  {
+    padding: 2px;
+  border: 0.1rem solid #fffda2;
+  border-radius: 0.25rem;
+  color: #FF8AAE;
+  background-color: #fffda2;
+  place-items: center;
+  font-size: 15px;
+
+  
+  cursor: pointer;
   }
   
-.steps
-{
+  .ul {
+   
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: column;
+    grid-gap: 0.5rem;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    list-style: none;/*le saca los puntos*/
+    padding: 10px;
+   
+
+}
+.li{
   
-  flex-wrap: wrap;
-  align-items: center;
-  resize: none;
+  background: #F5B68B;
+  color: white;
+  padding: 10px;
+  
+  border-radius: 10px;
 }

@@ -1,4 +1,36 @@
-div{
+.SearchBar
+{
+   position: relative;
+   display: flex;
+   justify-content:center;
 
-   padding:10px;
+}
+.containerS div{
+   padding-right: 30px;
+}
+.searchTerm
+{
+
+   border: 3px solid #9ADCFF;
+   border-right: none;
+   padding: 5px;
+   height: 20px;
+   border-radius: 5px 0 0 5px;
+   outline: none;
+   color: #9ADCFF;
+}
+.searchTerm:focus{
+   color: #9ADCFF;
+ }
+.BtnSearch
+{
+   width: 100px;
+   height: 36px;
+   border: 1px solid #9ADCFF;
+   background: #9ADCFF;
+   text-align: center;
+   color: #fff;
+   border-radius: 0 5px 5px 0;
+   cursor: pointer;
+   font-size: 20px;
 }

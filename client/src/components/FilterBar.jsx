@@ -5,7 +5,7 @@ import {
   filterRecipesByName,
   filterScore,
 } from "../redux/actions/index";
-
+import style from "./FilterBar.module.css"
 export default function FilterBar({ paginado }) {
   const dispatch = useDispatch();
   const [order, setOrder] = useState();
@@ -29,8 +29,8 @@ export default function FilterBar({ paginado }) {
     setOrder();
   }
   return (
-    <div >
-      <div>
+    <div className={style.ContainerFil} >
+      <div >
         <select onChange={(e) => handleSort(e)} defaultValue="default">
           <option value="default" disabled>
             Alphabetical order
