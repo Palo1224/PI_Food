@@ -1,0 +1,43 @@
+/* 
+.err {
+    margin-top: 4px;
+    color: red;
+} */
+.create{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    max-width: 55rem;
+    margin: 0 auto;
+    padding: 2rem;
+  background-color: #fece0c;
+}
+.summaError ,.nameError{
+    outline: none;
+    border: 1px solid rgb(239, 68, 68);
+    border-radius: 0.5rem;
+    padding: 0.5rem 2rem;
+
+
+  }
+  
+  .summa  ,.name{
+      
+   outline: none;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+
+
+  }
+  .error{
+    color:red
+  }
+  
+.steps
+{
+  
+  flex-wrap: wrap;
+  align-items: center;
+  resize: none;
+}
