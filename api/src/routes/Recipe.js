@@ -1,41 +1,40 @@
 const { Router } = require("express");
 const { Recipe, Diet } = require("../db");
-
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
-
 const router = Router();
 
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
-
 router.post("/", async (req, res) => {
-  const { name, summary, spoonacularScore, healthScore, steps, diets } = req.body;
+  const { name, summary, spoonacularScore, healthScore, steps, diet,image } =req.body;
+ 
 
   if (!name || !summary)
     return res
       .status(404)
       .send("Faltan algunos datos obligatorios, fijese si por name o summary");
   try {
+    let foodDbName = await Recipe.findAll({ 
+      where: { name: name } 
+  })
+  if(foodDbName.length) throw new Error('El nombre ya existe, ingresar otro')
     const newRecipe = await Recipe.create({
       name,
       summary,
       spoonacularScore,
       healthScore,
-      steps
+      steps,
+      image
+   
     });
 
     ///MIXINS CON DIETA
-
     let db = await Diet.findAll({
-      where: { name: diets },
+      where: { name: diet },
     });
-   
+
     newRecipe.addDiet(db);
 
     res.status(201).json(newRecipe);
   } catch (error) {
-    res.status(404).send("Error en alguno de los datos provistos");
+    res.status(404).send(error.message);
   }
 });
 module.exports = router;

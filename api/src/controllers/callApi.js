@@ -1,20 +1,19 @@
-
 const { Diet } = require("../db");
 
 const diets = [
-  { name: "Gluten Free" },
-  { name: "Vegetarian" },
-  { name: "Lacto-Vegetarian" },
-  { name: "Ovo-Vegetarian" },
-  { name: "Ketogenic" },
-  { name: "Vegan" },
-  { name: "Pescetarian" },
-  { name: "Paleo" },
-  { name: "Primal" },
-  { name: "Low FODMAP" },
-  { name: "Whole30" },
+  { name: "gluten free" },
+  { name: "dairy free" },
+  { name: "vegetarian" },
+  { name: "lacto ovo vegetarian" },
+  { name: "ketogenic" },
+  { name: "vegan" },
+  { name: "pescatarian" },
+  { name: "paleolithic" },
+  { name: "primal" },
+  { name: "fodmap friendly" },
+  { name: "whole 30" },
 ];
 async function getDiet() {
-  await Diet.bulkCreate(diets);
+  await Diet.bulkCreate(diets, { ignoreDuplicates: true });
 }
 module.exports = { getDiet };
