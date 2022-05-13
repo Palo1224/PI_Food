@@ -1,22 +1,27 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getRecipeName } from "../redux/actions";
+import { getRecipeName,clearPage } from "../redux/actions";
 import style from "./SearchBar.module.css";
 
-function SearchBar() {
+function SearchBar({paginado}) {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
-
+  const [order, setOrder] = useState("");
   //const history=useHistory()
   function handleInputChange(e) {
     e.preventDefault();
+  
     setName(e.target.value); //tomara todo lo que estamos escribiendo
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(getRecipeName(name));
+  
+    dispatch(getRecipeName(name));  
+    setOrder("Se encontro!"+ e.target.value)
+    
+
   }
   return (
     <div className={style.containerS}>

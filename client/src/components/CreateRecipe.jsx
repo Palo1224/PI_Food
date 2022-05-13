@@ -16,56 +16,23 @@ function CreateRecipe() {
   const [info, setInfo] = useState({
     name: "",
     summary: "",
-    spoonacularScore: "",
     healthScore: "",
     steps: "",
     diet:[],
     
   });
-  function handleDelete(e){
-  setInfo
-    (
-      {
-        ...info,
-        diets:  info.diet.filter(diet=>diet !== e)
-      }
-    )
 
-  
-  }
   const validate= (info) => 
   {
     const error={}
-    // if(!info.name)
-    // {
-    //   error.name="Name is requred"
-    // }
-    // if(!info.summary)
-    // {
-    //   error.summary="Summary is required"
-    // }
+
     if (!info.name) {
       error.name = 'Ingresar nombre de la receta'
   }
 
   if (!info.summary) {
       error.summary = 'Escribe un breve resumen'
-  }
-  // if (!info.spoonacularScore || info.spoonacularScore < 0 || info.spoonacularScore > 100) {
-  //     error.score = 'Ingresa un valor de 0 a 100'
-  // }
-  // if (!info.healthScore || info.healthScore < 0 || info.healthScore > 100) {
-  //     error.healthScore = 'Ingresa un valor de 0 a 100'
-  // }
-  // if (!error.stepByStep.length) {
-  //     error.stepByStep = 'Escribe una serie de pasos sobre cómo cocinar la receta'
-  // }
-  // if (!info.image) {
-  //     error.image = 'Ingresar URL de alguna imagen representativa'
-  // }
-  // if (!info.diets.length) {
-  //     error.diets = 'Elige al menos un tipo de dieta'
-  // }
+    }
     return error
   }
   function handleChange(e){
@@ -90,14 +57,15 @@ function CreateRecipe() {
     {
       return alert("Por favor complete el resumen!! ");
     }
-    // if(recipes.filter(e=>e.name.includes(info.name.toLowerCase())).length>0)
-    // {
-    //   return alert('Ya existe el nombre!')
-    // }
-    // if(recipes.filter(e=>e.summary.includes(info.summary.toLowerCase())).length>0)
-    // {
-    //   return alert('Ya existe el resumen!')
-    // }
+    if(recipes.filter(e=>e.name.includes(info.name.toLowerCase())).length>0)
+    {
+      return alert('Ya existe el nombre!')
+    }
+    if(recipes.filter(e=>e.summary.includes(info.summary.toLowerCase())).length>0)
+    {
+      return alert('Ya existe el resumen!')
+    }
+    
     
     if(Object.keys(error).length===0)
     {
@@ -106,7 +74,6 @@ function CreateRecipe() {
       setInfo({
         name: "",
         summary: "",
-        spoonacularScore: "",
         healthScore: "",
         steps: "",
         diet:[],
@@ -173,19 +140,6 @@ function CreateRecipe() {
             type="text"
             placeholder="steps"
             name="steps"
-            onChange={(e)=> handleChange(e)}
-          />
-        </div>
-    
-        <div className={style.spoonacularScore} >
-          <p>Score</p>
-          <input
-          
-            value={info.spoonacularScore}
-            type="number"
-            min="0" max="100"
-            placeholder="Score"
-            name="spoonacularScore"
             onChange={(e)=> handleChange(e)}
           />
         </div>

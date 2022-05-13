@@ -1,8 +1,12 @@
 .App {
+  padding: 0;
+
   text-align: center;
 }
 
 .App-logo {
+  padding: 0;
+
   height: 40vmin;
   pointer-events: none;
 }
@@ -14,6 +18,8 @@
 }
 
 .App-header {
+  padding: 0;
+
   background-color: #282c34;
   min-height: 100vh;
   display: flex;

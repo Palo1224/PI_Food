@@ -26,10 +26,9 @@ router.get("/:id", async (req, res) => {
   try {
     res.status(200).json(await getId(id));
   } catch (error) {
-    res.status(404).json(error);
+    res.status(404).json({error:error.message});
   }
 });
-
 
 
 module.exports = router;

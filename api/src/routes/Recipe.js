@@ -3,7 +3,7 @@ const { Recipe, Diet } = require("../db");
 const router = Router();
 
 router.post("/", async (req, res) => {
-  const { name, summary, spoonacularScore, healthScore, steps, diet,image } =req.body;
+  const { name, summary, healthScore, steps, diet,image } =req.body;
  
 
   if (!name || !summary)
@@ -18,7 +18,6 @@ router.post("/", async (req, res) => {
     const newRecipe = await Recipe.create({
       name,
       summary,
-      spoonacularScore,
       healthScore,
       steps,
       image
@@ -34,7 +33,8 @@ router.post("/", async (req, res) => {
 
     res.status(201).json(newRecipe);
   } catch (error) {
-    res.status(404).send(error.message);
+    res.status(404).send({error:error.message});
   }
 });
+
 module.exports = router;
