@@ -7,7 +7,8 @@ export const FILTER_SCORE= 'FILTER_SCORE';
 export const GET_DIETS= 'GET_DIETS';
 export const POST_RECIPE = 'POST_RECIPE'
 export const GET_DETAILS= 'GET_DETAILS';
-export const CLEAR_PAGE ="CLEAR_PAGE"
+export const CLEAR_PAGE ="CLEAR_PAGE";
+export const FILTER_DATOS="FILTER_DATOS";
 
 
 export function getRecipes(){
@@ -34,7 +35,16 @@ export function postRecipes(payload)
 
 	}
 }
+export function delDB(payload)
+{
+	return async function(dispatch) {
+		const post=await axios.delete('http://localhost:3001/recipes',payload)
+		// .then(()=> window.alert('Receta creada exitosamente'))
+        // .catch((error)=> window.alert(error.response.data))
+		return post;
 
+	}
+}
 export function filterRecipes(payload)
 { 
 	
@@ -54,7 +64,6 @@ export function filterRecipesByName(payload)
 }
 export function filterScore(payload)
 {
-	console.log(payload)
    return {type: FILTER_SCORE, payload}
 }
 
@@ -72,11 +81,16 @@ export function getRecipeName(name)
 	 }
 
 }
+
+
 export function getDetailsId(id)
 { 
+	console.log(id)
 	return async function(dispatch)
 	{
+
 		try {
+
           var json= await axios.get(`http://localhost:3001/recipes/${id}`)
 		  return dispatch({
              type:GET_DETAILS,

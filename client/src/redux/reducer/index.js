@@ -7,6 +7,7 @@ import {
   GET_DIETS,
   GET_DETAILS,
   CLEAR_PAGE,
+  FILTER_DATOS,
 } from "../actions";
 const initialState = {
   recipes: [],
@@ -14,6 +15,8 @@ const initialState = {
   diets: [],
   filter: [],
   details: {},
+  searching: false,
+
 };
 
 export default function reducer(state = initialState, actions) {
@@ -60,18 +63,20 @@ export default function reducer(state = initialState, actions) {
       return {
         ...state,
         recipes: sortedArray,
+        searching: false,
       };
+     
+  
+
 
     case FILTER_SCORE:
       const allRecipes3 = [...state.allRecipes];
       
-      console.log(actions.payload)
       switch (actions.payload) {
         case "asc":
           let order1 = allRecipes3.sort(function (a, b) {
-            console.log(a.spoonacularScore)
-            console.log(b.spoonacularScore)
-            return a.spoonacularScore - b.spoonacularScore;
+            console.log(allRecipes3)
+            return a.healthScore - b.healthScore;
           });
           return {
             ...state,
@@ -79,7 +84,7 @@ export default function reducer(state = initialState, actions) {
           };
         case "desc":
           let order2 = allRecipes3.sort((a, b) => {
-            return b.spoonacularScore - a.spoonacularScore;
+            return b.healthScore - a.healthScore;
           });
           return {
             ...state,

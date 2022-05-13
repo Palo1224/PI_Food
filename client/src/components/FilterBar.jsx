@@ -4,6 +4,7 @@ import {
   filterRecipes,
   filterRecipesByName,
   filterScore,
+  filterDBorAPI,
 } from "../redux/actions/index";
 import style from "./FilterBar.module.css"
 export default function FilterBar({ paginado }) {
@@ -15,6 +16,7 @@ export default function FilterBar({ paginado }) {
     e.preventDefault();
     dispatch(filterRecipes(e.target.value));
     paginado(1)
+    setOrder();
   }
   function handleSort(e) {
     e.preventDefault();
@@ -28,12 +30,13 @@ export default function FilterBar({ paginado }) {
     paginado(1)
     setOrder();
   }
+
   return (
     <div className={style.ContainerFil} >
       <div >
         <select onChange={(e) => handleSort(e)} defaultValue="default">
           <option value="default" disabled>
-            Alphabetical order
+            Ordenar por Alfabeticamente
           </option>
           <option value="asc">A-Z</option>
           <option value="desc">Z-A</option>
@@ -48,23 +51,23 @@ export default function FilterBar({ paginado }) {
           <option value="asc">Mayor</option>
         </select>
       </div>
+
       <select onChange={(e) => handleFilteredRecipes(e)}>
         <option value="default" disabled>
-          Select by Diets
+         Seleccione una dieta
         </option>
         <option value="All">Todos</option>
         <option value="dairy free">Dairy Free</option>
         <option value="gluten free">Gluten Free</option>
         <option value="ketogenic">Ketogenic</option>
         <option value="vegetarian">Vegetarian</option>
-        <option value="lacto vegetarian">Lacto-Vegetarian</option>
-        <option value="lacto ovo vegetarian">Ovo-Vegetarian</option>
+        <option value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
         <option value="vegan">Vegan</option>
         <option value="pescatarian">Pescetarian</option>
-        <option value="paleolithic">Paleo</option>
+        <option value="paleolithic">Paleolithic</option>
         <option value="primal">Primal</option>
-        <option value="fodmap friendly">Low FODMAP</option>
-        <option value="whole 30">Whole30</option>
+        <option value="fodmap friendly">Fodmap Friendly</option>
+        <option value="whole 30">Whole 30</option>
       </select>
     </div>
   );

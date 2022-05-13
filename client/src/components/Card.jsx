@@ -1,9 +1,10 @@
 import React from "react";
 import style from "./Card.module.css";
 
-export default function Card({ name, image, diets, id, score }) {
+export default function Card({ name, image, diets, id, score}) {
   return (
-    <div className={style.recipe} key={id}>
+    
+    <div className={style.recipe} key={id} >
       
       <img src={image} alt="img not found" width="200px" height="200px" />
       <h2 className={style.name}>{name}</h2>
@@ -13,8 +14,7 @@ export default function Card({ name, image, diets, id, score }) {
           <li className={style.li}>{e}</li>
         ))}
       </ul>
-      <p>SCORE:</p>
-      <p>{score}</p>
+      <p>SCORE: {score}</p>
     </div>
   );
 }

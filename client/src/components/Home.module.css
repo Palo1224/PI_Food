@@ -1,7 +1,7 @@
 .containerHome
 {
-   
-    display: flex;
+   padding: 0;
+     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
@@ -18,9 +18,7 @@
   gap: 2rem;
   max-width: 120rem;
   margin: 5rem auto;
-  
-/*  display: flex;
-  justify-content: center;
+    justify-content: center;
 flex-wrap: wrap;
 grid-gap: 1rem;
 gap: 2rem;
@@ -30,7 +28,7 @@ padding: 0%;
 }
 a:link, a:visited, a:active {
   text-decoration:none;
-*/
+
 } 
 a:link, a:visited, a:active {
   text-decoration:none;
