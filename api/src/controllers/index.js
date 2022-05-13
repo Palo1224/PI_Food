@@ -31,7 +31,6 @@ async function getApi() {
   }
 }
 
-//ESTA FUNCION ME VA A TRAER LA INFO DE LA DB
 async function getDB() {
   //
   const db = await Recipe.findAll({
@@ -55,7 +54,6 @@ async function getDB() {
           steps: e.steps
         };
 
-        //e.toJSON()
       })
     : [];
   let info1 = await jsonDbRecipes;

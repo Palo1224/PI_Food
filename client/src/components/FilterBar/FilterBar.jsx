@@ -5,7 +5,7 @@ import {
   filterRecipesByName,
   filterScore,
   filterDBorAPI,
-} from "../redux/actions/index";
+} from "../../redux/actions/index";
 import style from "./FilterBar.module.css"
 export default function FilterBar({ paginado }) {
   const dispatch = useDispatch();

@@ -2,10 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { postRecipes, getDiets ,getRecipes} from "../redux/actions/index";
-import NavBar from "./NavBar";
+import { postRecipes, getDiets ,getRecipes} from "../../redux/actions/index";
+import NavBar from "../NavBar/NavBar";
 
-import style from "./CreateRecipe.module.css"
+import style from "../CreateRecipe/CreateRecipe.module.css"
 function CreateRecipe() {
   const dispatch = useDispatch();
   const diets = useSelector((state) => state.diets);
@@ -98,9 +98,6 @@ function CreateRecipe() {
 
   return (
     <div className={style.container}>
-      {/* <Link to="/recipes/">
-        <button>Volver</button>
-      </Link> */}
       <NavBar></NavBar>
       <h1>Crea una nueva receta!</h1>
       <form   key={info.id} className={style.create}   onSubmit={ (e)=>handleSubmit(e)}>

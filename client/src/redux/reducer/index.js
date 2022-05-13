@@ -7,7 +7,6 @@ import {
   GET_DIETS,
   GET_DETAILS,
   CLEAR_PAGE,
-  FILTER_DATOS,
 } from "../actions";
 const initialState = {
   recipes: [],
@@ -15,7 +14,6 @@ const initialState = {
   diets: [],
   filter: [],
   details: {},
-  searching: false,
 
 };
 
@@ -63,7 +61,6 @@ export default function reducer(state = initialState, actions) {
       return {
         ...state,
         recipes: sortedArray,
-        searching: false,
       };
      
   

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getRecipeName,clearPage } from "../redux/actions";
+import { getRecipeName,clearPage } from "../../redux/actions";
 import style from "./SearchBar.module.css";
 
 function SearchBar({paginado}) {

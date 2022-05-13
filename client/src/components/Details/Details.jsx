@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetailsId, clearPage } from "../redux/actions";
-import style from "./Details.module.css";
-import NavBar from "./NavBar";
+import { getDetailsId, clearPage } from "../../redux/actions";
+import style from "../Details/Details.module.css";
+import NavBar from "../NavBar/NavBar";
 function Details(props) {
   const recipe = useSelector((state) => state.details);
 

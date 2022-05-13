@@ -1,9 +1,9 @@
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import LandingPage from "./components/LandingPage";
-import Home from "./components/Home";
-import CreateRecipe from "./components/CreateRecipe";
-import Details from "./components/Details";
+import LandingPage from "./components/LadingPage/LandingPage";
+import Home from "./components/Home/Home";
+import CreateRecipe from "./components/CreateRecipe/CreateRecipe";
+import Details from "./components/Details/Details";
 
 function App() {
   return (

@@ -7,13 +7,13 @@ import {
   filterRecipesByName,
   filterScore,
   clearPage,
-} from "../redux/actions/index";
-import Card from "./Card";
-import Paginado from "./Paginado";
-import SearchBar from "./SearchBar";
-import NavBar from "./NavBar";
-import FilterBar from "./FilterBar";
-import style from "./Home.module.css";
+} from "../../redux/actions/index";
+import Card from "../Card/Card";
+import Paginado from "../Paginado/Paginado";
+import SearchBar from "../SearchBar/SearchBar";
+import NavBar from "../NavBar/NavBar";
+import FilterBar from "../FilterBar/FilterBar";
+import style from "../Home/Home.module.css";
 
 export default function Home() {
   const dispatch = useDispatch(); //se usa para enviar acciones, esto es solo uso, el efecto es el mismo que conncet.
@@ -22,9 +22,10 @@ export default function Home() {
   
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage, setRecipesPerPage] = useState(9);
-  const indexOfLastRecipe = currentPage * recipesPerPage;
-  const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
+  const indexOfLastRecipe = currentPage * recipesPerPage;  //9
+  const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;// 9 - 9  0
   const currentRecipes = Recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
   const cambiarIndex = (index) => {
     if (index === currentPage) return true;
     else return false;
