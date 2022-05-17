@@ -2,5 +2,8 @@
   "name": "PI-Food-main",
   "lockfileVersion": 2,
   "requires": true,
-  "packages": {}
+  "packages": {},
+  "dependencies": {
+    "heroku": "^7.60.2"
+  }
 }

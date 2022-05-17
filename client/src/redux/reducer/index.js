@@ -6,6 +6,7 @@ import {
   GET_RECIPES_NAME,
   GET_DIETS,
   GET_DETAILS,
+  FILTER_DB,
   CLEAR_PAGE,
 } from "../actions";
 const initialState = {
@@ -64,8 +65,27 @@ export default function reducer(state = initialState, actions) {
       };
      
   
-
-
+     case FILTER_DB:
+       const allRecipe4=[...state.allRecipes  ]
+       var ValorNumerico = /^[0-9]+$/
+       switch(actions.payload)
+       {
+         case "DB": 
+         let db=allRecipe4.filter(e=> !(ValorNumerico.test(e.id)))
+         return {
+           ...state,
+           recipes:db
+         }
+         case "API":
+           let api=allRecipe4.filter(e=> (ValorNumerico.test(e.id)))
+           return{
+             ...state,
+             recipes:api
+           }
+           default:
+            return state;
+       }
+   
     case FILTER_SCORE:
       const allRecipes3 = [...state.allRecipes];
       

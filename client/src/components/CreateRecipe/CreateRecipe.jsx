@@ -130,7 +130,7 @@ function CreateRecipe() {
         </div>
         
         <div className={style.steps}>
-          <p>Steps</p>
+          <p>Los pasos que debes hacer?</p>
           <input
           
             value={info.steps}
@@ -143,7 +143,7 @@ function CreateRecipe() {
 
         <div  className={style.healthScore} >
          
-          <p>Health Score</p>
+          <p>Puntos de salud</p>
           <input
             value={info.healthScore}
             type="number"

@@ -4,7 +4,7 @@ import {
   filterRecipes,
   filterRecipesByName,
   filterScore,
-  filterDBorAPI,
+  filterDB,
 } from "../../redux/actions/index";
 import style from "./FilterBar.module.css"
 export default function FilterBar({ paginado }) {
@@ -30,7 +30,13 @@ export default function FilterBar({ paginado }) {
     paginado(1)
     setOrder();
   }
-
+ function handleDb(e)
+ {
+   e.preventDefault()
+   dispatch(filterDB(e.target.value))
+   paginado(1)
+   setOrder()
+ }
   return (
     <div className={style.ContainerFil} >
       <div >
@@ -51,7 +57,17 @@ export default function FilterBar({ paginado }) {
           <option value="asc">Mayor</option>
         </select>
       </div>
-
+    <div>
+      <select onChange={(e) =>handleDb(e) } >
+       <option value="default" disabled>
+         Buscar por DB
+       </option>
+       <option value="DB">DB</option>
+       <option value="API">Api</option>
+ 
+         
+      </select>
+    </div>
       <select onChange={(e) => handleFilteredRecipes(e)}>
         <option value="default" disabled>
          Seleccione una dieta
