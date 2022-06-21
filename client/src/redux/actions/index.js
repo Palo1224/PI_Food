@@ -13,7 +13,7 @@ export const FILTER_DB="FILTER_DB";
 
 export function getRecipes(){
 	return function(dispatch){
-		return axios.get('http://localhost:3001/recipes')
+		return axios.get('/recipes')
 		.then(( json ) => dispatch({type: GET_RECIPES, payload: json.data}))
 		
 	}
@@ -21,14 +21,14 @@ export function getRecipes(){
 export function getDiets()
 {
    return async function(dispatch) {
-      const diets=await axios.get('http://localhost:3001/types')
+      const diets=await axios.get('/types')
 	  return dispatch({type: GET_DIETS, payload:diets.data})
 	   }
 }
 export function postRecipes(payload)
 {
 	return async function(dispatch) {
-		const post=await axios.post('http://localhost:3001/recipe',payload)
+		const post=await axios.post('/recipe',payload)
 		// .then(()=> window.alert('Receta creada exitosamente'))
         // .catch((error)=> window.alert(error.response.data))
 		return post;
@@ -38,7 +38,7 @@ export function postRecipes(payload)
 export function delDB(payload)
 {
 	return async function(dispatch) {
-		const post=await axios.delete('http://localhost:3001/recipes',payload)
+		const post=await axios.delete('/recipes',payload)
 		// .then(()=> window.alert('Receta creada exitosamente'))
         // .catch((error)=> window.alert(error.response.data))
 		return post;
@@ -74,7 +74,7 @@ export function getRecipeName(name)
 {
 	 return async function(dispatch) {
 		 try {
-			 const json= await axios.get(`http://localhost:3001/recipes?name=${name}`)
+			 const json= await axios.get(`/recipes?name=${name}`)
 			 return dispatch({type:GET_RECIPES_NAME ,payload:json.data})
 			 
 		 } catch (error) {
@@ -96,7 +96,7 @@ export function getDetailsId(id)
 		
 		try {
 
-          var json= await axios.get(`http://localhost:3001/recipes/${id}`)
+          var json= await axios.get(`/recipes/${id}`)
 		  return dispatch({
              type:GET_DETAILS,
 			 payload:json.data,
