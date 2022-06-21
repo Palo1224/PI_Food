@@ -1,12 +1,13 @@
 const { YOUR_API_KEY } = process.env;
 const axios = require("axios").default;
 const { Recipe, Diet } = require("../db");
-
+const foodjs=require("../food.json")
 async function getApi() {
-  const resAxios = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=62f8112ef40046f498806e2d770222c8&addRecipeInformation=true&number=100`
-  );
-  const { results } = resAxios.data;
+
+  let foods = [...foodjs]  
+
+ 
+  const { results } = foods;
   if (results.length > 0) {
     let info = results.map((i) => {
       return {
@@ -88,15 +89,17 @@ async function getName(name_1) {
 }
 async function getId(id_1) {
   var ValorNumerico = /^[0-9]+$/;
+  let foods = [...foodjs]  
+  let foodFilter = foods.filter(e=>e.id==id_1)
 
   if (ValorNumerico.test(id_1)) {
 
-    const resId = await axios(
-      `https://api.spoonacular.com/recipes/${id_1}/information?apiKey=${YOUR_API_KEY}`
-      );
-      console.log(resId)
-    const results = resId.data;
-    if (Object.keys(results).length>0) {
+    // const resId = await axios(
+    //   `https://api.spoonacular.com/recipes/${id_1}/information?apiKey=${YOUR_API_KEY}`
+    //   );
+    //   console.log(resId)
+    // const results = resId.data;
+    if (Object.keys(foodFilter).length>0) {
       const {
         id,
         title,
@@ -105,7 +108,7 @@ async function getId(id_1) {
         diets,
         analyzedInstructions,
         image,
-      } = results;
+      } = foodFilter[0];
 
       let infoApi1 = {
         id,
