@@ -9,7 +9,6 @@ function Details(props) {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(props.match.params.id)
     dispatch(getDetailsId(props.match.params.id));
     return () => {
       dispatch(clearPage());
