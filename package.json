@@ -4,6 +4,5 @@
   "requires": true,
   "packages": {},
   "dependencies": {
-    "heroku": "^7.60.2"
   }
 }
