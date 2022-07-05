@@ -1,12 +1,13 @@
 const { YOUR_API_KEY } = process.env;
 const axios = require("axios").default;
 const { Recipe, Diet } = require("../db");
-
+const foods =require("../food.json")
 async function getApi() {
-  const resAxios = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY}&addRecipeInformation=true&number=100`
-  );
-  const { results } = resAxios.data;
+
+  // const resAxios = await axios.get(
+  //   `https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY}&addRecipeInformation=true&number=100`
+  // );
+  const { results } = foods;
   if (results.length > 0) {
     let info = results.map((i) => {
       return {
@@ -71,7 +72,7 @@ async function getName(name_1) {
   // s+ significa si hay mas de un espacio lo remplazamos por vacio
   // el trim es como que comprime
   name_1 = name_1.replace(/\s+/g, "").trim();
-
+  console.log(name_1)
   // name_1= name_1.replace(/\s+/g,'')
   //USO FILTER PORQUE QUIERO ME TRAIGA TODOS LO QUE EXISTE POR SU NOMBRE
   //SI LE PONGO MAP SOLO ME TRAERA SOLO UN A
@@ -88,15 +89,17 @@ async function getName(name_1) {
 }
 async function getId(id_1) {
   var ValorNumerico = /^[0-9]+$/;
+  // let foods = [...foodjs]  
+  // let foodFilter = foods.filter(e=>e.id==id_1)
 
   if (ValorNumerico.test(id_1)) {
 
-    const resId = await axios(
-      `https://api.spoonacular.com/recipes/${id_1}/information?apiKey=${YOUR_API_KEY}`
-      );
-      console.log(resId)
-    const results = resId.data;
-    if (Object.keys(results).length>0) {
+  //   const resId = await axios(
+  //     `https://api.spoonacular.com/recipes/${id_1}/information?apiKey=${YOUR_API_KEY}`
+  //     );
+    const results = foods.results;
+    const food=results.filter(e=>e.id==id_1)
+    if (food.length>0) {
       const {
         id,
         title,
@@ -105,7 +108,7 @@ async function getId(id_1) {
         diets,
         analyzedInstructions,
         image,
-      } = results;
+      } = food[0];
 
       let infoApi1 = {
         id,
@@ -133,7 +136,6 @@ async function getId(id_1) {
         },
       },
     });
-     console.log(recipeFinded)
     if (Object.keys(recipeFinded).length> 0) {
       let {
         id,

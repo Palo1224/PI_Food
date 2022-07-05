@@ -1,18 +1,16 @@
-.details
-{
-    font-weight: 500;
-    font-size: 1rem;
-   
-    background-color: #fffda2;
-}
+
 .detail{
-    align-items: flex-start;
-    flex-direction: column;
-    align-items: center;
 
+    background-color: #fffda2;
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 3px solid rgb(179, 179, 179);
+    border-radius: 10px;
+    margin: 4rem;
+    padding: auto;
 }
 
-p{
+.detail p{
    
     text-align: start;
  display: flow-root;
@@ -22,10 +20,13 @@ p{
  font-weight: 400;
  font-size: 1rem;
 
+
 }
 
 .ul {
    
+  font-weight: bold;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -48,14 +49,18 @@ p{
 
 .datos
 {
- text-align: start;
- font-weight: 700;
-    font-size: 1rem;
+
+  font-size: 1rem;
+}
+.datos p{
+  font-weight: bold;
+
 }
 .puntos{
 
     flex-wrap: wrap;
     justify-content: center;
+    font-weight: bold;
 
 }
 .puntos p
@@ -67,23 +72,24 @@ p{
     margin-top: 1rem;
     list-style: none;/*le saca los puntos*/
 
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1rem;
     border-radius: 10px;
 }
-  .ul {
-   
+  /* .ul {
+    font-weight: bold;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     grid-gap: 0.5rem;
     gap: 0.5rem;
     margin-top: 1rem;
-    list-style: none;/*le saca los puntos*/
+    list-style: none;le saca los puntos
     padding: 0%;
 
 
-}
+} */
 .li{
   
   background: #FF8AAE;

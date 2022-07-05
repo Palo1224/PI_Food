@@ -42,8 +42,7 @@ export default function FilterBar({ paginado }) {
       <div >
         <select onChange={(e) => handleSort(e)} defaultValue="default">
           <option value="default" disabled>
-            Ordenar por Alfabeticamente
-          </option>
+          Sort by Alphabetically          </option>
           <option value="asc">A-Z</option>
           <option value="desc">Z-A</option>
         </select>
@@ -51,28 +50,25 @@ export default function FilterBar({ paginado }) {
       <div>
         <select onChange={(e) => handleSortScore(e)} defaultValue="default">
           <option value="default" disabled>
-            Ordenar por Puntuacion
-          </option>
-          <option value="desc">Menor</option>
-          <option value="asc">Mayor</option>
+          Sort by Score          </option>
+          <option value="desc">Minor</option>
+          <option value="asc">Higher</option>
         </select>
       </div>
     <div>
       <select onChange={(e) =>handleDb(e) } >
        <option value="default" disabled>
-         Buscar por DB
-       </option>
-       <option value="DB">DB</option>
+       Search by DB       </option>
        <option value="API">Api</option>
+       <option value="DB">DB</option>
  
          
       </select>
     </div>
       <select onChange={(e) => handleFilteredRecipes(e)}>
         <option value="default" disabled>
-         Seleccione una dieta
-        </option>
-        <option value="All">Todos</option>
+        select a diet        </option>
+        <option value="All">All</option>
         <option value="dairy free">Dairy Free</option>
         <option value="gluten free">Gluten Free</option>
         <option value="ketogenic">Ketogenic</option>

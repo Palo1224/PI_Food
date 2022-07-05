@@ -1,34 +1,26 @@
 
-.container
-{
-    flex-direction: row;
-    text-align: left;
-    justify-content: flex-start;
-    background: #FF8AAE;
 
-}
-div{
-  padding: 0;
-  justify-content: flex-start;
-
-}
 .nav{
-    max-width: 100rem;
-    margin: 0 auto;
+  background: #FF8AAE;
+    margin: -20px;
+    padding: 10px 10px;
     justify-content: flex-start;
     transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    align-items: flex-start;
 
   
 }
 
 .link {
-    text-align: center;
     display: inline-block;
+    align-items: flex-start;
     padding: 1rem;
     cursor: pointer;
     font-weight: 700;
   }
   .link a {
+    align-items: flex-start;
+    
     color: #fff;
     font-size: 1rem;
     font-weight: 700;

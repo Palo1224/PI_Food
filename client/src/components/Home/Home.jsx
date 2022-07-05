@@ -11,9 +11,9 @@ import {
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
 import SearchBar from "../SearchBar/SearchBar";
-import NavBar from "../NavBar/NavBar";
 import FilterBar from "../FilterBar/FilterBar";
 import style from "../Home/Home.module.css";
+import IconExampleLoading from "../../Loading/IconExampleLoading";
 
 export default function Home() {
   const dispatch = useDispatch(); //se usa para enviar acciones, esto es solo uso, el efecto es el mismo que conncet.
@@ -25,7 +25,7 @@ export default function Home() {
   const indexOfLastRecipe = currentPage * recipesPerPage;  //9
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;// 9 - 9  0
   const currentRecipes = Recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
-
+const [visible, setIsVisible]=useState(false)
   const cambiarIndex = (index) => {
     if (index === currentPage) return true;
     else return false;
@@ -43,9 +43,11 @@ export default function Home() {
     // setOrder()
   }, [dispatch]);
   
+  setTimeout(function () {
+    setIsVisible(true);
+  }, 3000);
   return (
     <div className={style.containerHome}>
-      <NavBar />
       <FilterBar paginado={paginado} />
 
       <SearchBar  paginado={paginado} 
@@ -59,7 +61,7 @@ export default function Home() {
         indexOfLastRecipe={indexOfLastRecipe}
         />
       <div className={style.cards}>
-        {currentRecipes.length>0 ? currentRecipes?.map((e) => {
+        { currentRecipes.length>0 ? currentRecipes?.map((e) => {
           return (
             <div className={style.Recipes} key={e.id}> 
            
@@ -76,12 +78,17 @@ export default function Home() {
               </Link>
             </div>
           );
-        }) : 
+        })  :
+        !visible ?
         <div> 
         
            
         <p>Loading.....</p>
        
+    </div>:
+    <div>
+    <IconExampleLoading></IconExampleLoading>
+    <p>Nothing was found</p>
     </div>
     }
        

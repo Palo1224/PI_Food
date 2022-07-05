@@ -4,6 +4,7 @@
   "requires": true,
   "packages": {},
   "dependencies": {
-    "heroku": "^7.60.2"
+    "heroku": "^7.60.2",
+    "semantic-ui-react": "^2.1.3"
   }
 }

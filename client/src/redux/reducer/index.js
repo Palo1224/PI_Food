@@ -92,7 +92,6 @@ export default function reducer(state = initialState, actions) {
       switch (actions.payload) {
         case "asc":
           let order1 = allRecipes3.sort(function (a, b) {
-            console.log(allRecipes3)
             return a.healthScore - b.healthScore;
           });
           return {

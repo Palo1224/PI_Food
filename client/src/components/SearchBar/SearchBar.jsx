@@ -19,6 +19,10 @@ function SearchBar({paginado}) {
     e.preventDefault();
   
     dispatch(getRecipeName(name));  
+    if(getRecipeName(name)==="error")
+    {
+      console.log("no se encontro nada")
+    }
     setOrder("Se encontro!"+ e.target.value)
     
 
@@ -30,7 +34,7 @@ function SearchBar({paginado}) {
           className={style.searchTerm}
           onChange={(e) => handleInputChange(e)}
           type="text"
-          placeholder="Buscar...."
+          placeholder="Search...."
         />
         <button
           className={style.BtnSearch}
@@ -38,7 +42,7 @@ function SearchBar({paginado}) {
           type="submit"
         >
         
-         Buscar
+         Search
         </button>
       </div>
     </div>

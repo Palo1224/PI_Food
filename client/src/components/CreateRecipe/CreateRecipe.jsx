@@ -27,11 +27,11 @@ function CreateRecipe() {
     const error={}
 
     if (!info.name) {
-      error.name = 'Ingresar nombre de la receta'
+      error.name = 'Enter Name of the recipe'
   }
 
   if (!info.summary) {
-      error.summary = 'Escribe un breve resumen'
+      error.summary = 'Write a short summary'
     }
     return error
   }
@@ -51,26 +51,26 @@ function CreateRecipe() {
     e.preventDefault()
     if(!info.name)
     {
-      return alert("Por favor complete el nombre!! ");
+      return alert("Please fill in the name!! ");
     }
     if(!info.summary)
     {
-      return alert("Por favor complete el resumen!! ");
+      return alert("Please fill in the summary!! ");
     }
     if(recipes.filter(e=>e.name.includes(info.name.toLowerCase())).length>0)
     {
-      return alert('Ya existe el nombre!')
+      return alert('Name already exists!')
     }
     if(recipes.filter(e=>e.summary.includes(info.summary.toLowerCase())).length>0)
     {
-      return alert('Ya existe el resumen!')
+      return alert('Summary already exists!')
     }
     
     
     if(Object.keys(error).length===0)
     {
       dispatch(postRecipes(info))
-     alert("Receta Creada con éxitos!")
+     alert("Recipe Created with Success!")
       setInfo({
         name: "",
         summary: "",
@@ -97,25 +97,29 @@ function CreateRecipe() {
   }, []);
 
   return (
+    <div>      <NavBar></NavBar>
+   
     <div className={style.container}>
-      <NavBar></NavBar>
-      <h1>Crea una nueva receta!</h1>
+      <h1>Create a new recipe!</h1>
       <form   key={info.id} className={style.create}   onSubmit={ (e)=>handleSubmit(e)}>
-        <div>           <p>Nombre</p>
+        <div>          
+           <span>Name</span><br></br>
           <input
             className={error.name ? style.nameError : style.name}
-
+            
             value={info.name}
             type="text"
-            placeholder="Nombre"
+            placeholder="Name"
             name="name"
             onChange={(e)=> handleChange(e)}
-          />
-          {error.name && <p className={style.error}>{error.name}</p>}
+            /><br></br>
+
+
+            {error.name && <span className={style.error}>{error.name}</span>}
 
         </div>
         <div>
-          <p>Resumen</p>
+          <span>Summary</span><br></br>
           <input
             className={error.summary ? style.summaError : style.summa}
 
@@ -124,13 +128,13 @@ function CreateRecipe() {
             placeholder="Summary"
             name="summary"
             onChange={(e)=> handleChange(e)}
-          />
-          {error.summary && <p className={style.error}>{error.summary}</p>}
+          /><br></br>
 
+          {error.summary && <p className={style.error}>{error.summary}</p>}
         </div>
         
         <div className={style.steps}>
-          <p>Los pasos que debes hacer?</p>
+          <span>The steps you must do?</span><br></br>
           <input
           
             value={info.steps}
@@ -143,7 +147,7 @@ function CreateRecipe() {
 
         <div  className={style.healthScore} >
          
-          <p>Puntos de salud</p>
+          <span>Health Points</span><br></br>
           <input
             value={info.healthScore}
             type="number"
@@ -155,7 +159,7 @@ function CreateRecipe() {
         </div>
 
         <div className={style.image}>
-          <p>Image</p>
+          <span>Image</span><br></br>
           <input
             
             value={info.image}
@@ -166,22 +170,25 @@ function CreateRecipe() {
           />
         </div>
        <div  className={style.diets}>
-         <p>Que tipo de dieta es?</p>
+         <span>What type of diet is it?</span><br></br>
        <select onChange={(e) => handleSelect(e)}>
           {diets.map((diet) => (
             <option value={diet.name}>{diet.name}s</option> 
             ))}
         </select >
+        <div>
         <ul className={style.ul}>
             {info.diet?.map((e) => (
               <li className={style.li}>{e}</li>
             ))}
           </ul>
+          </div>
        </div>
  
         
-        <button type="submit">Crear mi receta</button>
+        <button type="submit">Create my recipe</button>
       </form>
+    </div>
     </div>
   );
 }

@@ -13,7 +13,7 @@ function NavBar() {
             <Link  to="/recipes/">Home </Link>
           </li>
           <li className={style.link}>
-            <Link to="/recipe">Crear receta</Link>
+            <Link to="/recipe">Create recipe</Link>
           </li>
         </ul>
       </nav>
