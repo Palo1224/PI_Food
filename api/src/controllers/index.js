@@ -89,8 +89,13 @@ async function getName(name_1) {
 }
 async function getId(id_1) {
   var ValorNumerico = /^[0-9]+$/;
+<<<<<<< HEAD
   // let foods = [...foodjs]  
   // let foodFilter = foods.filter(e=>e.id==id_1)
+=======
+  let foods = [...foodjs]  
+  let foodFilter = foods.filter(e=>e.id==id_1)
+>>>>>>> 12e2762982d42e0d61db85ca5994adc503efea39
 
   if (ValorNumerico.test(id_1)) {
 

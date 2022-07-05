@@ -61,7 +61,8 @@ const [visible, setIsVisible]=useState(false)
         indexOfLastRecipe={indexOfLastRecipe}
         />
       <div className={style.cards}>
-        { currentRecipes.length>0 ? currentRecipes?.map((e) => {
+        {
+        currentRecipes.length>0 ? currentRecipes?.map((e) => {
           return (
             <div className={style.Recipes} key={e.id}> 
            
@@ -83,7 +84,7 @@ const [visible, setIsVisible]=useState(false)
         <div> 
         
            
-        <p>Loading.....</p>
+        <p>No existe ninguna Receta</p>
        
     </div>:
     <div>

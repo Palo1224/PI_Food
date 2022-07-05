@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "nodemon .",
+=======
+    "start": "node .",
+    "start:dev": "nodemon -L",
+>>>>>>> 12e2762982d42e0d61db85ca5994adc503efea39
     "test": "mocha -w ./tests/**/*.spec.js"
   },
   "author": "Henry",

@@ -1,4 +1,13 @@
 
+.container
+{
+    margin: -9px;
+    flex-direction: row;
+    text-align: left;
+    justify-content: flex-start;
+    background: #FF8AAE;
+
+}
 
 .nav{
   background: #FF8AAE;
